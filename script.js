@@ -3,7 +3,7 @@ var attemptsLeft;
 
 function startGame() {
     secretNumber = Math.floor(Math.random() * 100) + 1;
-    attemptsLeft = 5;
+    attemptsLeft = 10;
     document.getElementById("attempts").textContent = "Počet pokusů zbývajících: " + attemptsLeft;
 }
 
