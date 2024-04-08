@@ -1,1 +1,4 @@
-
+Na zprovoznění této stránky je potřeba jazyků CSS, PHP a HTML.
+CSS je jazyk určený k formátování a stylování webových stránek. Umí definovat vzhled, rozložení a design prvků HTML.Pomocí CSS lze nastavovat vlastnosti jako barvy, velikosti, fonty, pozice a animace pro různé části webových stránek.
+PHP je serverový skriptovací jazyk, který se používá k vytváření dynamických webových stránek a aplikací. PHP umožňuje vkládat kód přímo do HTML stránek, což umožňuje generovat obsah na základě různých podmínek, interakcí nebo dat z databáze.
+HTML je základní stavební kámen webových stránek. Používá se k definici struktury a obsahu webové stránky pomocí značek a elementů.Bez HTML by webové stránky nebylo možné vytvořit a zobrazit obsah na internetu.
