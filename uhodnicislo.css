@@ -1,0 +1,10 @@
+.back-button2 {
+    display: inline-block; /* Nastaví odkaz jako blokový prvek */
+    padding: 10px 20px; /* Vnější okraje pro tlačítko */
+    background-color: #008000; /* Zelená barva pozadí */
+    color: white; /* Bílá barva textu */
+    text-decoration: none; /* Odstraní podtržení textu */
+    border: none; /* Odstraní ohraničení */
+    border-radius: 5px; /* Zaoblené hrany */
+    cursor: pointer; /* Kurzor ukazuje na odkaz */
+}

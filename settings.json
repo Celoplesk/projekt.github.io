@@ -1,0 +1,6 @@
+{
+    "phpserver.phpConfigPath": "C:\\xampp\\php\\php.ini",
+    "phpserver.phpPath": "C:\\xampp\\php\\php.exe",
+    "phpserver.browser": "Chrome",
+    "liveServer.settings.port": 5501
+}

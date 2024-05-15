@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/sibenice.css">
+<title>Šibenice</title>
+</head>
+<body style="background-image: url(images/hangman.jpg);background-size: cover;">
+    <!-- Nadpis stránky -->
+    <h1 style="background-color: transparent;">Šibenice</h1>
+    <!-- Kontejner pro vizuální zobrazení šibenice -->
+    <div class="hangman-container">
+        <!-- Vizuální části šibenice -->
+        <div class="hangman-part" id="head"></div>
+        <div class="hangman-part" id="body"></div>
+        <div class="hangman-part" id="leftArm"></div>
+        <div class="hangman-part" id="rightArm"></div>
+        <div class="hangman-part" id="leftLeg"></div>
+        <div class="hangman-part" id="rightLeg"></div>
+    </div>
+    <!-- Kontejner pro textový popis hry a vstup pro hádání písmen -->
+    <div class="containerText">
+        <p>Uhádni slovo:</p>
+        <div id="wordToGuess"></div>
+        <p>Uhádni písmeno:</p>
+        <input type="text" id="guessInput">
+    </div>
+    <!-- Tlačítko pro potvrzení hádaného písmena -->
+    <button onclick="guessLetter()">Hádat</button>
+
+    <script>
+        // Pole slov k hádání
+        var words = ["auto", "kolo", "kniha", "stůl", "židle","motorka","brambora","kostel","ruka","dráha","počítač","ambicióznost", "rozplývavější", "neokusím", "přepětím", "důchodce", "převářeného", "vodnaté", "nadřaděném", "usnadňovadla", "modemů", "třicateronásobná", "kurzanti", "přeškolily", "pomateme", "uctívaném", "nepolepšitelná", "nenalokáme", "probrouzdaná", "vypínavý", "pátravým", "nevyžádali", "koulařova", "strpěných", "izovalerinová", "ploticím", "dýhami", "zkostnatělým", "nezpeněžitelný", "medicinmanů", "zamávat", "vyhřebelcovanými", "očistcový", "zapříčiní", "dvacetinásobným", "shrabuj", "mísovité", "hotelové", "zakolébými", "fetíšizovanému", "vratitelnýma", "vlachovo", "přesunováno", "přešitím", "namalováno", "octanový", "nezaktivovala", "rozplynutý", "kanibalistickému", "tělový", "nížinný", "zavadaná", "neobydlených", "vykloubit", "nabaženému", "soudcovské", "vypovídacím", "elektrovodná", "zašťourat", "neodsouval", "vykřičet", "nadefinovaném", "splakat", "vyvleču", "jedenáctiprocentními", "inhibitory", "nakročenou", "vzduchovkovém", "prošťourávat", "nejlogičtěji", "spolupachatel", "střeženo", "positivnější", "ohřívací", "sedmdesaterýma", "dolámanou", "našlapal", "knokautovaným", "autobusem", "proplácení", "usrkávajícím", "nejdobrosrdečnějšího", "divergujícímu", "obvazovanou", "čechoslovákovému", "prohráváš", "zaječka", "ukočírovanému", "namouduši", "zkracujetou", "zaimprovizuje", "rozmělnili", "republikány", "myslivcem", "navrstvenější", "připutovaném", "nepodpalujete", "tlumočník", "vychrstnutí", "vyzváněné", "vychovejte"];
+        // Vybere náhodné slovo k hádání
+        var selectedWord = words[Math.floor(Math.random() * words.length)];
+        // Pole pro ukládání uhodnutých písmen
+        var guessedWord = Array(selectedWord.length).fill('_');
+
+        // Zobrazí počáteční stav slova k hádání
+        document.getElementById('wordToGuess').innerText = guessedWord.join(' ');
+
+        // Počet nesprávných pokusů
+        var incorrectGuesses = 0;
+        // Maximální povolený počet nesprávných pokusů
+        var maxIncorrectGuesses = 6;
+
+        // Funkce pro hádání písmena
+        function guessLetter() {
+            // Získá hádané písmeno z vstupního pole
+            var letter = document.getElementById('guessInput').value.toLowerCase();
+            // Vymaže obsah vstupního pole
+            document.getElementById('guessInput').value = '';
+
+            // Kontrola, zda je hádané písmeno ve slově
+            if (selectedWord.includes(letter)) {
+                // Pokud ano, aktualizuje uhodnuté písmeno ve slově
+                for (var i = 0; i < selectedWord.length; i++) {
+                    if (selectedWord[i] === letter) {
+                        guessedWord[i] = letter;
+                    }
+                }
+                // Zobrazí aktualizované slovo k hádání
+                document.getElementById('wordToGuess').innerText = guessedWord.join(' ');
+
+                // Zkontroluje, zda všechna písmena byla uhodnuta
+                if (!guessedWord.includes('_')) {
+                    alert('Gratulujeme, uhádl(a) jste slovo!');
+                }
+            } else {
+                // Pokud je písmeno nesprávné, zvýší počet nesprávných pokusů
+                incorrectGuesses++;
+                // Vykreslí část šibenice odpovídající nesprávnému pokusu
+                drawHangman();
+                // Pokud bylo překročeno maximální povolené množství nesprávných pokusů, ukončí hru
+                if (incorrectGuesses >= maxIncorrectGuesses) {
+                    alert('Bohužel, vyčerpali jste všechny pokusy. Správné slovo bylo: ' + selectedWord);
+                }
+            }
+        }
+
+        // Funkce pro vykreslení části šibenice
+        function drawHangman() {
+            // Pole s názvy částí šibenice
+            var hangmanParts = ['head', 'body', 'leftArm', 'rightArm', 'leftLeg', 'rightLeg'];
+            // Pokud nebyl překročen maximální počet nesprávných pokusů, vykreslí další část šibenice
+            if (incorrectGuesses <= maxIncorrectGuesses) {
+                document.getElementById(hangmanParts[incorrectGuesses - 1]).style.backgroundColor = 'black';
+            }
+        }
+    </script>
+    <!-- Odkaz zpět do menu -->
+    <a href="index.html"class="back-button3">zpátky do menu</a>
+</body>
+</html>
