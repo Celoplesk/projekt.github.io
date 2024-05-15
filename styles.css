@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+/* Styl pro tlačítka na hry */
+.game-button {
+    display: block; /* Nastaví odkaz jako blokový prvek */
+    width: 200px; /* Šířka tlačítka */
+    margin: 20px auto; /* Automatické zarovnání tlačítek na střed */
+    padding: 10px; /* Vnitřní okraje pro tlačítko */
+    background-color: rgb(0, 255, 76); /* Barva pozadí */
+    color: white; /* Barva textu */
+    text-decoration: none; /* Odstraní podtržení textu */
+    text-align: center; /* Zarovnání textu na střed */
+    border-radius: 5px; /* Zaoblené hrany */
+    cursor: pointer; /* Kurzor ukazuje na odkaz */
+}
