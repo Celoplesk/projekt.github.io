@@ -8,3 +8,6 @@
     border-radius: 5px; /* Zaoblené hrany */
     cursor: pointer; /* Kurzor ukazuje na odkaz */
 }
+.text{
+    background-color:seashell;
+}
