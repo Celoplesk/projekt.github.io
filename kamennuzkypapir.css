@@ -22,3 +22,6 @@ button {
     border-radius: 5px; /* Zaoblené hrany */
     cursor: pointer; /* Kurzor ukazuje na odkaz */
 }
+header {
+    color: red;
+}
